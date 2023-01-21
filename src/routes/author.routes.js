@@ -10,9 +10,8 @@ router.get('/api/v1/authors', async (req, res) => {
 
 router.get('/api/v1/author/:id', async (req, res) => {
     const author = await Author.find({_id: req.params.id});
-    res.json(author);
+    res.json([author]);
 })
-
 
 router.post('/api/v1/author', async (req, res) => {
     const { name, lastname, bibliographic } = req.body;
@@ -29,7 +28,7 @@ router.put('/api/v1/author/:id', async (req, res) => {
 })
 
 router.delete('/api/v1/author/:id', async (req, res) => {
-    const result = await Author.deleteOne(req.params.id);
+    const result = await Author.deleteOne({_id: req.params.id});
     res.json(result) 
 })
 
