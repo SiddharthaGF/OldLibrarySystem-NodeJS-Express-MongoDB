@@ -30,7 +30,7 @@ router.put('/api/v1/author/:id', async (req, res) => {
 
 router.delete('/api/v1/author/:id', async (req, res) => {
     const result = await Author.deleteOne(req.params.id);
-    res.json(result)
+    res.json(result) 
 })
 
-module.exports = router;
+module.exports = router; 
